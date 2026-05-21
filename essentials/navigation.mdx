@@ -10,11 +10,11 @@ You will likely update `docs.json` every time you add a new page. Pages do not s
 
 ## Navigation syntax
 
-Our navigation syntax is recursive which means you can make nested navigation groups. You don't need to include `.mdx` in page names.
+The navigation syntax is recursive, so you can create nested navigation groups. You don't need to include `.mdx` in page names.
 
 <CodeGroup>
 
-```json Regular Navigation
+```json Regular navigation
 "navigation": {
   "tabs": [
     {
@@ -30,7 +30,7 @@ Our navigation syntax is recursive which means you can make nested navigation gr
 }
 ```
 
-```json Nested Navigation
+```json Nested navigation
 "navigation": {
   "tabs": [
     {
@@ -56,9 +56,9 @@ Our navigation syntax is recursive which means you can make nested navigation gr
 
 ## Folders
 
-Simply put your MDX files in folders and update the paths in `docs.json`.
+Put your MDX files in folders and update the paths in `docs.json`.
 
-For example, to have a page at `https://yoursite.com/your-folder/your-page` you would make a folder called `your-folder` containing an MDX file called `your-page.mdx`.
+For example, to serve a page at `https://yoursite.com/your-folder/your-page`, create a folder called `your-folder` containing an MDX file called `your-page.mdx`.
 
 <Warning>
 
@@ -66,7 +66,7 @@ You cannot use `api` for the name of a folder unless you nest it inside another 
 
 </Warning>
 
-```json Navigation With Folder
+```json Navigation with folder
 "navigation": {
   "tabs": [
     {
@@ -84,4 +84,4 @@ You cannot use `api` for the name of a folder unless you nest it inside another 
 
 ## Hidden pages
 
-MDX files not included in `docs.json` will not show up in the sidebar but are accessible through the search bar and by linking directly to them.
+MDX files not included in `docs.json` do not appear in the sidebar, but they remain accessible through the search bar and through direct links.

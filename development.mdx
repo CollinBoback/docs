@@ -28,20 +28,20 @@ Navigate to your docs directory where your `docs.json` file is located, and run 
 mint dev
 ```
 
-A local preview of your documentation will be available at `http://localhost:3000`.
+A local preview of your documentation is available at `http://localhost:3000`.
 
 </Step>
 </Steps>
 
 ## Custom ports
 
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. For example, to run Mintlify on port 3333, use this command:
+By default, Mintlify uses port 3000. Customize the port with the `--port` flag. For example, to run Mintlify on port 3333:
 
 ```bash
 mint dev --port 3333
 ```
 
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
+If the chosen port is already in use, Mintlify uses the next available port:
 
 ```md
 Port 3000 is already in use. Trying 3001 instead.
@@ -49,7 +49,7 @@ Port 3000 is already in use. Trying 3001 instead.
 
 ## Mintlify versions
 
-Please note that each CLI release is associated with a specific version of Mintlify. If your local preview does not align with the production version, please update the CLI:
+Each CLI release maps to a specific version of Mintlify. If your local preview does not match the production version, update the CLI:
 
 ```bash
 npm mint update
@@ -57,7 +57,7 @@ npm mint update
 
 ## Validating links
 
-The CLI can assist with validating links in your documentation. To identify any broken links, use the following command:
+Use the CLI to validate links in your documentation. To find broken links, run:
 
 ```bash
 mint broken-links
@@ -65,7 +65,7 @@ mint broken-links
 
 ## Deployment
 
-If the deployment is successful, you should see the following:
+If the deployment succeeds, you see the following:
 
 <Frame>
   <img src="/images/checks-passed.png" alt="Screenshot of a deployment confirmation message that says All checks have passed." style={{ borderRadius: '0.5rem' }} />
@@ -73,7 +73,7 @@ If the deployment is successful, you should see the following:
 
 ## Code formatting
 
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
+Use IDE extensions to recognize and format MDX. If you're a VS Code user, try the [MDX VS Code extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
 
 ## Troubleshooting
 
@@ -92,4 +92,4 @@ We suggest using extensions on your IDE to recognize and format MDX. If you're a
   </Accordion>
 </AccordionGroup>
 
-Curious about what changed in the latest CLI version? Check out the [CLI changelog](https://www.npmjs.com/package/mintlify?activeTab=versions).
+Curious about what changed in the latest CLI version? See the [CLI changelog](https://www.npmjs.com/package/mintlify?activeTab=versions).
