@@ -1,0 +1,32 @@
+---
+title: "README"
+sidebarTitle: "README.md"
+description: "Repo orientation — what's here, where to look, house rules"
+---
+
+# data-practice
+
+A working repository for Boeing Supply Chain **Reporting & Analytics (R&A)** — and, quietly, a lab for AI-assisted knowledge work.
+
+Two things live here.
+
+**1. The work.** Pre-reads, kickoff docs, lineage write-ups, and stakeholder comms for the S/4HANA R&A team. There's no code and no build pipeline — the deliverables are documents that go to real people. The current effort is the first kickoff between the R&A team and Brian Strand's SC BI Analyst team, who own the existing Tableau / Cognos / KPI Web Apps estate (`boeing-data-projects/brian-team-kickoff/`).
+
+**2. The scaffolding around the work.** A multi-IDE agent setup — Claude Code is canonical; Cursor, Kiro, and Continue mirror it — plus a home-grown session-discipline system, **focus-keeper**, that opens every working session behind a written scope contract, refuses drift to a `LATER` inbox, and closes on a binary done-check. The bet: treat staying-on-scope as an engineering problem and externalize the fence instead of relying on willpower.
+
+## Where to look
+
+| Path | What |
+| --- | --- |
+| `TASKS.md` | Deadline-anchored task front door — **start here** |
+| `CLAUDE.md` | Repo layout \+ the writing standards every external doc follows |
+| `boeing-data-projects/` | The content: kickoff docs, source-of-truth evidence, templates |
+| `projects/` | focus-keeper session state (contract / later / sessions) |
+| `comms/` | Stakeholder communication log |
+| `ltm/` | Local long-term-memory (a Kiro power) — tooling committed, memory local-private |
+
+## House rules
+
+- Substantive claims cite a source file under `boeing-data-projects/evidence/` — no inventing facts about what stakeholders said.
+- Plain English in the audience's nouns (workbook, custom SQL data source, OPENQUERY, stored proc, ERPLN, Cognos package, …). Read it aloud before it ships.
+- Push over **HTTPS** — this machine has two GitHub accounts and the SSH key points at the other one.

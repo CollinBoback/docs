@@ -1,0 +1,76 @@
+---
+title: "TASKS"
+sidebarTitle: "TASKS.md"
+description: "Deadline-anchored milestone roadmap and task front door"
+---
+
+# TASKS — repo front door
+
+Single glanceable, deadline-anchored task list for active work. This is the **milestone roadmap**, not the source of fine detail — each cluster points to where the canonical detail lives so this file can't silently drift:
+
+- **Tonight's binary Definition of Done** → `projects/brian-team-kickoff/CONTRACT.md` (overwritten each session; canonical if it ever disagrees with the frog block below).
+- **Content gaps to resolve before the draft** → `boeing-data-projects/brian-team-kickoff/open-questions.md`.
+- **Granular / personal tasks** → Todoist, "Boeing Onboarding" project (ID `6g8pFgJjxgM44vFJ`).
+
+When a deadline passes or scope changes, update this file by hand.
+
+> **Active objective (2026-05-20 ~22:00):** Both v1 artifacts are DoD-complete (see `projects/brian-team-kickoff/CONTRACT.md`). **Format-call: pre-read-led.** Next: Thu 5/21 AM — read both aloud once for final flow check, then send the .docx to Brendan, Mark, Clayton, Marc Forchione, Ryan Wiebe (\+ verify Brian's team distribution list). Open the meeting with "I sent the pre-read this morning; we'll walk through it together — deck is here for diagrams if a question wants one."
+
+---
+
+## At a glance
+
+| Deadline | Milestone | Status |
+| --- | --- | --- |
+| Wed 5/20 PM | v1 .docx pre-read built (`brian-team-kickoff-preread-v1.docx`) | ☑ |
+| Wed 5/20 PM | v1 .pptx deck built (`brian-team-kickoff-deck-v1.pptx`) | ☑ |
+| Wed 5/20 EOD | v1 → DoD-complete: substance edits verified, deck slide 10 patched, format-call decided (pre-read-led), markdown spec reconciled | ☑ |
+| **Thu 5/21 AM** | Read both aloud once, then send pre-read .docx to audience as morning-of pre-read | ☐ |
+| **Thu 5/21** | Kickoff meeting itself — R&A \+ Marc F \+ Ryan W \+ Brendan in the room | ☐ |
+| Post-meeting | GitLab repo "how to read this" walkthrough; cadence confirmation | ☐ |
+
+_(Mark a row ☑ when every subtask under it is checked.)_
+
+> Schedule changed: original Tue 5/26\+ kickoff with a 5/22 pre-read send is **superseded** by the 5/21 compressed schedule announced 2026-05-20. The "internal review with Brendan first" step folded into the meeting itself.
+
+---
+
+## Wed 5/20 EOD — v1 close-out ☑
+
+DoD-complete per `CONTRACT.md`. Summary of what closed tonight:
+
+- **Word doc** — 5 substance edits verified against m14; 3 unflagged improvements also confirmed (Mark Leung quote dated, §6 "We will" gained a third bullet on SAP delivery decision, §6 "You will" rephrased meeting-date → cadence). `pre-read-draft.md` reconciled to match; header note documents the markdown-as-spec / build-script-as-renderer relationship.
+- **Deck** — walked slides 1–12. Found and fixed one defect: slide 10 said "by Thu 5/21" for the GitLab walkthrough (obsolete since 5/21 IS the meeting); patched in `_build_deck.py` line 465 \+ in-place in slide10.xml of the .pptx. All 12 slides intact; numbers on slides 5/6/7 cross-check against m14 §1.4/§1.5/§1.6.
+- **Format-call** — pre-read-led, per Brendan's coaching. Open the meeting with "I sent the pre-read this morning; we'll walk through it together — deck is here for diagrams if a question wants one."
+
+## Thu 5/21 — Send \+ meeting
+
+- Read both artifacts aloud once for final flow check (5/21 AM)
+- Send pre-read .docx to audience first thing AM (Brendan, Mark, Clayton, Marc Forchione, Ryan Wiebe; verify Brian's team distribution list)
+- Kickoff meeting itself — 60 min, format TBD (in-person / Teams / hybrid)
+- Capture decisions \+ open items live; write up notes within 24 hrs
+
+## Post-meeting follow-ups
+
+- **GitLab lineage repo polish** — top-level README, "how to read this" page, consistent per-dashboard structure (was a Thu 5/21 commitment in the original schedule; now a post-meeting deliverable per the §6 "we will")
+- **Confirm follow-up cadence** with Brian's team (Tue 5/26 or alternative for the next working session)
+- **`BCA_SC_Report_Inventory.xlsx`** — last session's hard requirement, deferred from tonight; revisit post-meeting if still relevant
+- **Cognos training/access path** for the 11-pack \+ SCMA additions Brian flagged Apr 22
+
+---
+
+## Open questions to land in tomorrow's discussion
+
+_Resolve, or write in explicitly as `OPEN` / `ASK`. Full list: `boeing-data-projects/brian-team-kickoff/open-questions.md`. Several of these are now answered by `m14-data-entity-mapping-snapshot.md` (e.g., dashboard #5–7 names, SupplyR portfolio stats, seam examples) — open-questions.md needs a clarify pass post-meeting._
+
+- **Prioritization** (Marc F has business-SME context on this): is the **11-pack** \+ **SCMA** the right first analysis additions?
+- **KPI disruption:** how do existing KPIs stay intact during the SAP transition?
+- **Future state:** which existing reports become canonical R&A products vs. stay operational?
+- **Root fixes:** any current SC data-quality / business-rule messes the S/4 migration should fix at the root?
+- **Architecture:** handle multi-dashboard OPENQUERY → ERPLN deps — canonicalize into one S/4-native view, or port one-for-one?
+- **Legacy logic:** validate stored procedures where the SQL doesn't reveal business intent (Ryan owns SCMODS validation per `pre-read-draft.md` §5)
+- **Cognos access path** for the 11-pack \+ SCMA additions Brian flagged
+
+---
+
+_Last updated: 2026-05-20 ~22:00 (v1 close-out — DoD complete, ready for 5/21 AM send)._

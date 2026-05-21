@@ -1,0 +1,65 @@
+---
+title: "CLAUDE.md"
+sidebarTitle: "CLAUDE.md"
+description: "Primary workspace memory — repo layout, writing standards, conventions"
+---
+
+# Boeing — S/4HANA Reporting & Analytics workspace
+
+Working repo for Collin's Boeing Supply Chain Reporting & Analytics (R&A) work. Primarily a writing \+ reference workspace (pre-reads, templates, kickoff docs) — there is no code, build, or test pipeline.
+
+> Local folder is `Boeing/` but the git remote is `CollinBoback/data-practice` (private). Use **HTTPS** for push/pull — this machine has two GitHub accounts and the SSH key points at the other one.
+
+## Active work
+
+- `TASKS.md` (repo root) — deadline-anchored milestone checklist / task front door. Points to CONTRACT.md (tonight's DoD), open-questions.md (content gaps), and Todoist (granular). Update by hand as deadlines pass.
+- `boeing-data-projects/brian-team-kickoff/README.md` — kickoff context, deadlines, what's left. **Read first** when picking up the effort.
+- `boeing-data-projects/brian-team-kickoff/open-questions.md` — gaps that need resolving before the pre-read goes out.
+- `boeing-data-projects/brian-team-kickoff/pre-read-draft.md` — the in-progress 1-pager pre-read for Brian's team (the 5/22 deliverable). Apply the writing standards below.
+- `boeing-data-projects/evidence/` — source-of-truth jpegs (Brian's Apr 22 email thread, Brendan's coaching IM) and the May 19 Monday team meeting transcript. Cite these when adding claims.
+- `projects/brian-team-kickoff/{CONTRACT,LATER,SESSIONS}.md` — focus-keeper operational state (per-session contract, captured-for-later inbox, session log). Separate from the content README above.
+- Target meeting **Thu 2026-05-21** (compressed up from the original Tue 5/26\+). Audience is R&A team (Brendan, Mark Leung, Clayton Maytorena, Marc Forchione) \+ Ryan Wiebe; Brendan is in the room so the original "internal review first" step folded into the meeting itself. v1 of both kickoff artifacts (`brian-team-kickoff-preread-v1.docx`, `brian-team-kickoff-deck-v1.pptx`) is saved in `boeing-data-projects/brian-team-kickoff/`; the morning-of pre-read send goes 5/21 AM.
+
+> ⚠️ A 2026-05-19 cleanup pass found that the prior session had inflated Claude-generated guardrails into "Brendan said" framing. Only attribute things to Brendan that are quoted in `boeing-data-projects/evidence/brendan-coaching-*.jpeg`. Everything else is team convention or general practice — say so.
+
+## Writing standards (apply to docs going to external readers)
+
+Direct quotes from Brendan's coaching IM (`boeing-data-projects/evidence/brendan-coaching-*.jpeg`), distilled in `boeing-data-projects/docs/brendan-writing-steering.md`:
+
+- **Don't default to PowerPoint** for a small, technically-competent audience. Write a 1-pager pre-read and send it ahead.
+- **Backup slides for diagrams** during Q&A only — not the medium.
+- **Agenda \+ intent slide** so people know why the meeting is happening.
+- **Informing isn't a purpose.** Every section ties to an action — clarify, surface concerns, identify problems.
+- **Close with "I will / you will"** explicit actions on both sides.
+
+Team conventions (not from Brendan, but the team works this way — see `boeing-data-projects/docs/Boeing Data Projects — Document & Slide Templates.md`):
+
+- Plain English in the audience's nouns: workbook, custom SQL data source, OPENQUERY, linked server, stored proc, view definition, ERPLN, ERPMart, SCMODs, Tableau Server, Cognos package, BTP/BDC, Lake House.
+- Tag observations DECIDED / OPEN / ASK when the tag helps the reader sort what's being asked.
+- Posture: students, not architects.
+- Read it aloud before sending.
+
+When in doubt about tone/structure for a customer-facing artifact, invoke the `brendan-writing-steering` skill before drafting.
+
+## Repo layout
+
+- `boeing-data-projects/` — **primary content repo.** Working mirror of the Claude.ai project "Boeing Data Projects" (UUID `019e4024-2ea5-76e3-b1f9-2124aeff8d35`). Synced from `github.com/CollinBoback/data-practice/tree/main`. After the 2026-05-19 cleanup pass the structure is: top-level `README.md`, `brian-team-kickoff/` (active sub-project — README \+ open-questions \+ SOURCE-OF-TRUTH), `docs/` (Brendan writing steering \+ templates), `evidence/` (source-of-truth jpegs and transcript), `metadata.json`, `syncs.json`. New project content goes here, not at root. Substantive claims should cite a file under `evidence/`.
+- `projects/<name>/` — **focus-keeper session state** for specific sub-projects (CONTRACT.md, LATER.md, SESSIONS.md per session). Separate from the content README of the same name in `boeing-data-projects/<name>/`. Currently: `projects/brian-team-kickoff/`. All three files (`CONTRACT.md`, `LATER.md`, `SESSIONS.md`) are committed. `CONTRACT.md` overwrites every session — that churn is intentional and provides session archaeology.
+- `notes/` — cross-project reference material that doesn't belong to any sub-project. Currently `claude-adhd-task-management.md`.
+- `comms/` — stakeholder communication log (`README.md` orients the folder). `communication-log.md` is the master journal (📬 INBOX / 🟢 Active / ✅ Closed, plus a `⏳ Open gaps` roundup); `threads/` holds per-thread breakouts and verbatim raw-source captures (email/Teams bodies). Source-of-truth screenshots and transcripts live in `boeing-data-projects/evidence/`. **Tag convention:** `TODO(comms):` = owed in this repo (canonical list is the Open gaps section); `XREF:` = deliberate pointer to a separate local workspace, not a gap to resolve. Both surface in TODO Tree (`.vscode/settings.json`).
+- `.claude/agents/` — repo-local subagent definitions: `data-analyst`, `database-optimizer`, `documentation-engineer`, `knowledge-synthesizer`, `legacy-modernizer`, `project-manager`, `readme-generator`, `technical-writer`.
+- `.claude/skills/` — repo-local skills (39 directories on disk, 2026-05-20). See the skills section below for audit findings.
+- `.claude/settings.json` — repo-local Claude Code config (committed). `settings.local.json` is gitignored.
+- `archive/` — gitignored. Raw imports and content moved out during cleanup. Read-only — reach in only when you need to re-import.
+- `.omc/` — oh-my-claudecode runtime state, gitignored.
+- `ltm/` — **ltm-power** local long-term-memory. Committed: `bin/ltm.py` (CLI), `config.json`, `manifest.json`, `README.md`. Gitignored (the actual memory): `store/`, `runtime/`, `reports/`, `snapshots/`.
+- Root `README.md` is the GitHub-facing orientation doc for the repo.
+
+## Conventions
+
+- Content destined for the Claude.ai "Boeing Data Projects" project goes under `boeing-data-projects/`.
+- Focus-keeper session state (CONTRACT.md, LATER.md, SESSIONS.md) goes under `projects/<name>/`, not in `boeing-data-projects/`.
+- Reference material that spans projects or doesn't belong to any goes in `notes/`.
+- Claude config (agents, skills, settings) stays under `.claude/` at the project level, never at the root.
+- No build/test/lint to run.
+- Don't commit raw datasets without first uncommenting the data lines in `.gitignore`.

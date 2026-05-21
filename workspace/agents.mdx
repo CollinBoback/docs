@@ -1,0 +1,22 @@
+---
+title: "AGENTS.md"
+sidebarTitle: "AGENTS.md"
+description: "Learned bullets from past sessions harvested by agents-memory-updater"
+---
+
+# AGENTS.md
+
+`CLAUDE.md` at the workspace root is the primary workspace memory for this repo. Read it first. This file holds only learned bullets harvested from past sessions by the `agents-memory-updater` flow; it intentionally does not duplicate content already in `CLAUDE.md` or the `.cursor/rules/` files.
+
+## 2026-05-20 — initial harvest
+
+### Learned User Preferences
+
+- When asked for input on a decision, give one decisive recommendation grounded in expertise rather than a thorough survey of options. The user will decide whether to act on it.
+- Don't trade decisiveness for thoroughness. Investigation summaries are fine when asked for, but on a "what should I do" prompt skip the survey and lead with the recommendation.
+- Parallelize independent investigation, audit, or review work using Cursor multitask or subagent swarms rather than running them sequentially.
+
+### Learned Workspace Facts
+
+- `AGENTS.md` at the workspace root is a pointer file; `CLAUDE.md` at the workspace root is the primary workspace memory. Do not fork content between the two — update `CLAUDE.md` for canonical project state, use `AGENTS.md` only for learned bullets.
+- `.cursor/hooks/state/continual-learning-index.json` is the canonical transcript-processing index for the `agents-memory-updater` flow (schema: `transcript_uuid` → `{ mtime, processed_at }`). The sibling `.cursor/hooks/state/continual-learning.json` is a different file (continual-learning hook run state, with keys like `lastRunAtMs` and `lastProcessedGenerationId`) and must not be confused with the index.

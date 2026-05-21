@@ -48,6 +48,15 @@
               "ai-tools/claude-code",
               "ai-tools/windsurf"
             ]
+          },
+          {
+            "group": "Workspace Reference",
+            "pages": [
+              "workspace/readme",
+              "workspace/claude",
+              "workspace/tasks",
+              "workspace/agents"
+            ]
           }
         ]
       },
